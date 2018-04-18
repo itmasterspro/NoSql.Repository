@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>ItMastersPro.NoSql.Repository.Interfaces</RootNamespace>
+    <AssemblyName>ItMastersPro.NoSql.Repository.Interfaces</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Konstantin Anisimoff</Authors>
+    <Company>ItMasters.Pro</Company>
+    <Copyright>ItMasters.Pro</Copyright>
+    <PackageLicenseUrl>https://github.com/itmasterspro/NoSql.Repository/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/itmasterspro/NoSql.Repository</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/itmasterspro/NoSql.Repository.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>repository nosql no-sql di unit work of UnitOfWork UoW IoC itmasters pro</PackageTags>
+    <Description>A library with repository interfaces for using NoSQL</Description>
   </PropertyGroup>
 
 </Project>

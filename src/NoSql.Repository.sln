@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.Interfaces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.MongoDb", "NoSql.Repository.MongoDb\NoSql.Repository.MongoDb.csproj", "{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{422E2F9F-00DB-4EE1-B7B5-236937C5DA2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
