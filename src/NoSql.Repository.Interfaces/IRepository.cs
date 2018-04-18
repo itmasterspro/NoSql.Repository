@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
-namespace Repository.Interfaces
+namespace ItMastersPro.NoSql.Repository.Interfaces
 {
     /// <summary>
     /// Defines the interfaces for generic repository.

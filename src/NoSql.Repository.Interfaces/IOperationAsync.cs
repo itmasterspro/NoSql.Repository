@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Repository.Interfaces
+namespace ItMastersPro.NoSql.Repository.Interfaces
 {
     /// <summary>
     /// Defines the interfaces for asynchronous CRUD operations with NoSQL collection.

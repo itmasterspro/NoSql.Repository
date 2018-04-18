@@ -22,9 +22,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ItMastersPro.NoSql.Repository.Interfaces" Version="0.1.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
     <PackageReference Include="PluralizeService.Core" Version="1.0.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoSql.Repository.Interfaces\NoSql.Repository.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
