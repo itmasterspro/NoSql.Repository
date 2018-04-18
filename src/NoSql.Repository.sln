@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.Interfaces", "NoSql.Repository.Interfaces\NoSql.Repository.Interfaces.csproj", "{2D1ED16D-6C38-4A75-B0F8-863A3CE9E317}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSql.Repository.Interfaces", "NoSql.Repository.Interfaces\NoSql.Repository.Interfaces.csproj", "{2D1ED16D-6C38-4A75-B0F8-863A3CE9E317}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.MongoDb", "NoSql.Repository.MongoDb\NoSql.Repository.MongoDb.csproj", "{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSql.Repository.MongoDb", "NoSql.Repository.MongoDb\NoSql.Repository.MongoDb.csproj", "{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{422E2F9F-00DB-4EE1-B7B5-236937C5DA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.MongoDb.UnitTests", "..\tests\NoSql.Repository.MongoDb.UnitTests\NoSql.Repository.MongoDb.UnitTests.csproj", "{2736C21F-872C-4C97-8670-6ECAF3CCCD19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +25,16 @@ Global
 		{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AD9A6BE-E0D9-4F32-B367-43A13D8AD22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2736C21F-872C-4C97-8670-6ECAF3CCCD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2736C21F-872C-4C97-8670-6ECAF3CCCD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2736C21F-872C-4C97-8670-6ECAF3CCCD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2736C21F-872C-4C97-8670-6ECAF3CCCD19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2736C21F-872C-4C97-8670-6ECAF3CCCD19} = {422E2F9F-00DB-4EE1-B7B5-236937C5DA2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {68B1BF97-EFA9-40EF-9ACF-301B86D3A5FD}
