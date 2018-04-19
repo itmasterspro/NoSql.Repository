@@ -2,16 +2,13 @@
 
 Implementation the Repository and Unit-of-Work patterns for use NoSql databases on .Net Core
 
-## Attention!
-Starting with version 2.0.1, the algorithm for creating the collection name has been changed. The name is reduced to the upper register of the invariant culture. Therefore, you must either bring the collection name to the upper case, or use version 1.2.2.
-
 ## Getting Started
 Use package is very simple:
 
 ### Step 1: 
 Import the package, using the command 
 ```posh 
-Install-Package ItMastersPro.MongoDb.Repository 
+Install-Package ItMastersPro.NoSql.Repository 
 ```
 
 ### Step 2: 
@@ -112,7 +109,7 @@ To get the list of entities from the collection, you can use a method where the 
 ```csharp
    var filtredList = _postRepository.Query(andFilter);
 ```
-For more information, see the test [projects](https://github.com/itmasterspro/MongoDb.Repository/blob/master/tests/MongoDb.Repository.UnitTests/FilterGeneratorUnitTest.cs).
+For more information, see the test [projects](https://github.com/itmasterspro/NoSql.Repository/blob/master/tests/NoSql.Repository.MongoDb.UnitTests/TestFilter.cs).
 
 ### Addition
 At the moment the library implements simple methods: Insert, Updage, Delete, Find (search one record), Query (search multiple  record). We tried to make the code intuitive, in addition, we supplemented it with an annotation. You can also see unit tests as an example. Detailed documentation find [here](https://itmasterspro.github.io/MongoDb.Repository/api/index.html).
@@ -137,12 +134,12 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [repository of packages](https://www.nuget.org/packages/ItMastersPro.MongoDb.Repository/). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [repository of packages](https://github.com/itmasterspro/NoSql.Repository). 
 
 ## Authors
 * **Konstantin Anisimoff** - *Initial work* - [ItMasters.Pro](https://github.com/itmasterspro)
 
-See also the list of [contributors](https://github.com/itmasterspro/MongoDb.Repository/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/itmasterspro/NoSql.Repository/contributors) who participated in this project.
 
 ## License
 
