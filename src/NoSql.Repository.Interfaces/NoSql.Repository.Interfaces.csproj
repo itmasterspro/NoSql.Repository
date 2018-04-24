@@ -15,6 +15,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>repository nosql no-sql di unit work of UnitOfWork UoW IoC itmasters pro</PackageTags>
     <Description>A library with repository interfaces for using NoSQL</Description>
+    <PackageIconUrl>https://avatars2.githubusercontent.com/u/34750101</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
