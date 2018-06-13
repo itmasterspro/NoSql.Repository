@@ -14,10 +14,11 @@ namespace ItMastersPro.NoSql.Repository.MongoDb.Interfaces
     /// </summary>
     public interface IMongoDbContext
     {
+        /*
         /// <summary>
         /// Connection string for connecting to MongoDb
         /// </summary>
-        //string ConnectionString { get; }
+        string ConnectionString { get; }*/
 
         /// <summary>
         /// Mongodb client settings

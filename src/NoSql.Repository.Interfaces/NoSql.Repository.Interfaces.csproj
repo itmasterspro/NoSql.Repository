@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>ItMastersPro.NoSql.Repository.Interfaces</RootNamespace>
     <AssemblyName>ItMastersPro.NoSql.Repository.Interfaces</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,5 +17,9 @@
     <Description>A library with repository interfaces for using NoSQL</Description>
     <PackageIconUrl>https://avatars2.githubusercontent.com/u/34750101</PackageIconUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
+  </ItemGroup>
 
 </Project>

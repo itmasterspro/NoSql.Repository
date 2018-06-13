@@ -8,7 +8,7 @@ namespace NoSql.Repository.MongoDb.UnitTests.Entity
 {
     public class TesTEntity1 : IEntity
     {
-        public object Id { get; set; }
+        public ObjectId Id { get; set; }
 
         public string StringsTestField { get; set; }
 

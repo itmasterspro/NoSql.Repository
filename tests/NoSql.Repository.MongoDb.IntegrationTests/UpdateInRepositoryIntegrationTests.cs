@@ -14,7 +14,7 @@ namespace NoSql.Repository.MongoDb.IntegrationTests
 {
     public class TesTEntityForUpdateTest : IEntity
     {
-        public object Id { get; set; }
+        public ObjectId Id { get; set; }
 
         public string StringsTestField { get; set; }
 
