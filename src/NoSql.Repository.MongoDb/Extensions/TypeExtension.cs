@@ -16,7 +16,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb.Extensions
         /// <returns>Name collection in MongoDb</returns>
         internal static string MongoCollectionName(this Type type)
         {
-            var collectionName = type.Name.ToUpperInvariant().GetPluralizationName();
+            var collectionName = type.Name.GetPluralizationName().ToLowerInvariant();
             if (string.IsNullOrWhiteSpace(collectionName))
                 throw new ArgumentNullException($"Collection name can not be empty!");
             return collectionName;
