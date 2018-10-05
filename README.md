@@ -112,7 +112,7 @@ To get the list of entities from the collection, you can use a method where the 
 For more information, see the test [projects](https://github.com/itmasterspro/NoSql.Repository/blob/master/tests/NoSql.Repository.MongoDb.UnitTests/TestFilter.cs).
 
 ### Usage Identity
-* Ñreate links to libraries
+* Create links to libraries
 ```
 NoSql.Repository.MongoDb.Identity.Stores
 NoSql.Repository.MongoDb.IdentityProvider
