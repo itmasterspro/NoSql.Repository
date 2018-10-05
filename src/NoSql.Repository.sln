@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSite", "..\samples\WebSi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSql.Repository.MongoDb.IdentityProvider", "NoSql.Repository.MongoDb.IdentityProvider\NoSql.Repository.MongoDb.IdentityProvider.csproj", "{13402A12-B2E5-4E9D-AC7D-831D06BA14FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.MongoDb.Identity.Stores", "NoSql.Repository.MongoDb.Identity.Stores\NoSql.Repository.MongoDb.Identity.Stores.csproj", "{92D3B580-F60A-47AD-9EC4-3288F14853DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoSql.Repository.MongoDb.Identity.Stores", "NoSql.Repository.MongoDb.Identity.Stores\NoSql.Repository.MongoDb.Identity.Stores.csproj", "{92D3B580-F60A-47AD-9EC4-3288F14853DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoSql.Repository.MongoDb.All", "NoSql.Repository.MongoDb.All\NoSql.Repository.MongoDb.All.csproj", "{565D6D74-ECB9-4BB6-A6F3-5CF3A52B5BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{92D3B580-F60A-47AD-9EC4-3288F14853DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92D3B580-F60A-47AD-9EC4-3288F14853DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92D3B580-F60A-47AD-9EC4-3288F14853DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{565D6D74-ECB9-4BB6-A6F3-5CF3A52B5BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565D6D74-ECB9-4BB6-A6F3-5CF3A52B5BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565D6D74-ECB9-4BB6-A6F3-5CF3A52B5BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565D6D74-ECB9-4BB6-A6F3-5CF3A52B5BB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

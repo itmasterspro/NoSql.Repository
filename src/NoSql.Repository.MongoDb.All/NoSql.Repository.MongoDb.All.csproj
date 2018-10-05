@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>ItMastersPro.NoSql.Repository.MongoDb.All</AssemblyName>
+    <RootNamespace>ItMastersPro.NoSql.Repository.MongoDb.All</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Konstantin Anisimoff</Authors>
+    <Company>ItMasters.Pro</Company>
+    <Description>Implementing the Repository pattern for use MongoDb</Description>
+    <Copyright>ItMasters.Pro</Copyright>
+    <PackageLicenseUrl>https://github.com/itmasterspro/NoSql.Repository/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/itmasterspro/NoSql.Repository</PackageProjectUrl>
+    <PackageIconUrl>https://avatars2.githubusercontent.com/u/34750101</PackageIconUrl>
+    <RepositoryUrl>https://github.com/itmasterspro/NoSql.Repository.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>mongo mongodb repository cosmosdb nosql no-sql di unit work of UnitOfWork UoW IoC itmasters pro</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoSql.Repository.Interfaces\NoSql.Repository.Interfaces.csproj" />
+    <ProjectReference Include="..\NoSql.Repository.MongoDb.Identity.Stores\NoSql.Repository.MongoDb.Identity.Stores.csproj" />
+    <ProjectReference Include="..\NoSql.Repository.MongoDb.IdentityProvider\NoSql.Repository.MongoDb.IdentityProvider.csproj" />
+    <ProjectReference Include="..\NoSql.Repository.MongoDb\NoSql.Repository.MongoDb.csproj" />
+  </ItemGroup>
+
+</Project>
