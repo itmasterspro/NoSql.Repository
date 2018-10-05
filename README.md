@@ -111,6 +111,20 @@ To get the list of entities from the collection, you can use a method where the 
 ```
 For more information, see the test [projects](https://github.com/itmasterspro/NoSql.Repository/blob/master/tests/NoSql.Repository.MongoDb.UnitTests/TestFilter.cs).
 
+### Usage Identity
+* Create links to libraries
+```
+NoSql.Repository.MongoDb.Identity.Stores
+NoSql.Repository.MongoDb.IdentityProvider
+```
+* Add service to the container
+```csharp
+services.UseMongoDb(Configuration.GetSection("MongoConnection:ConnectionString").Value);
+services.AddDefaultIdentity<ApplicationUser>()
+                .AddMongoDbStores<IMongoDbContext>();
+```
+See examples for more information.
+
 ### Addition
 At the moment the library implements simple methods: Insert, Updage, Delete, Find (search one record), Query (search multiple  record). We tried to make the code intuitive, in addition, we supplemented it with an annotation. You can also see unit tests as an example. Detailed documentation find [here](https://itmasterspro.github.io/MongoDb.Repository/api/index.html).
 
