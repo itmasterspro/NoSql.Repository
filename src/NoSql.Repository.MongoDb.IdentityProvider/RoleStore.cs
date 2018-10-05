@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ItMastersPro.NoSql.Repository.Interfaces;
 using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using MongoDB.Bson;
-using NoSql.Repository.MongoDb.Identity;
-using IdentityRole = Microsoft.AspNetCore.Identity.IdentityRole;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Creates a new instance of a persistence store for roles.

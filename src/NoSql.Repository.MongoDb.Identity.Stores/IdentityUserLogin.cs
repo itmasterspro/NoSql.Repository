@@ -4,7 +4,7 @@ using System.Text;
 using ItMastersPro.NoSql.Repository.Interfaces;
 using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.Identity
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Represents a login and its associated provider for a user.

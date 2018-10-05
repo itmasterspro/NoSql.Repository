@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ItMastersPro.NoSql.Repository.MongoDb;
+using ItMastersPro.NoSql.Repository.MongoDb.Identity;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -14,7 +15,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
-using NoSql.Repository.MongoDb.IdentityProvider;
 using WebSite.Models;
 
 namespace WebSite

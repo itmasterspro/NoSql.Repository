@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
+using ItMastersPro.NoSql.Repository.MongoDb.Identity;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
-using NoSql.Repository.MongoDb.Identity;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Creates a new instance of a persistence store for the specified user type.
@@ -38,7 +37,7 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
         where TContext : IMongoDbContext
     {
         /// <summary>
-        /// Constructs a new instance of <see cref="UserStore{TUser, TRole, TContext}"/>.
+        /// Constructs a new instance of <see cref="UserStore{TUser,TRole,TContext}"/>.
         /// </summary>
         /// <param name="context">The <see cref="IMongoDbContext"/>.</param>
         /// <param name="describer">The <see cref="IdentityErrorDescriber"/>.</param>

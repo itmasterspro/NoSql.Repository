@@ -5,7 +5,7 @@ using ItMastersPro.NoSql.Repository.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.Identity
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Represents an authentication token for a user.

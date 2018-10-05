@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItMastersPro.NoSql.Repository.MongoDb;
-using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
-using MongoDB.Bson;
+﻿using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Base class for the Entity Framework database context used for identity.
@@ -21,7 +13,7 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
         /// <summary>
         /// Initializes a new instance of the db context.
         /// </summary>
-        /// <param name="connectionString">The options to be used by a <see cref="DbContext"/>.</param>
+        /// <param name="connectionString">The options to be used by a <see cref="MongoDbContext"/>.</param>
         public IdentityUserContext(string connectionString) : base(connectionString) { }
     }
 

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using ItMastersPro.NoSql.Repository.MongoDb.Identity;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Contains extension methods to <see cref="IdentityBuilder"/> for adding entity framework stores.
@@ -29,7 +28,7 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
 
         private static void AddStores(IServiceCollection services, Type userType, Type roleType, Type contextType)
         {
-            var identityUserType = FindGenericBaseType(userType, typeof(NoSql.Repository.MongoDb.Identity.IdentityUser));
+            var identityUserType = FindGenericBaseType(userType, typeof(Identity.IdentityUser));
             if (identityUserType == null)
             {
                 throw new InvalidOperationException(Resources.NotIdentityUser);

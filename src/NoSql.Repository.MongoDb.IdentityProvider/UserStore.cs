@@ -11,7 +11,7 @@ using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Represents a new instance of a persistence store for users, using the default implementation

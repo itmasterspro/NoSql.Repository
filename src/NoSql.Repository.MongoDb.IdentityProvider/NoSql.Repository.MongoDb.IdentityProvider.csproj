@@ -14,7 +14,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>mongo mongodb repository cosmosdb nosql no-sql itmasters pro identity provider userstore rolestore</PackageTags>
     <AssemblyName>ItMastersPro.NoSql.Repository.MongoDb.IdentityProvider</AssemblyName>
-    <RootNamespace>ItMastersPro.NoSql.Repository.MongoDb.IdentityProvider</RootNamespace>
+    <RootNamespace>ItMastersPro.NoSql.Repository.MongoDb.Identity</RootNamespace>
     <Description>ASP.NET Core Identity is the membership system for building ASP.NET Core web applications, including membership, login, and user data for MongoDb.</Description>
   </PropertyGroup>
 

@@ -2,7 +2,7 @@
 using ItMastersPro.NoSql.Repository.Interfaces;
 using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.Identity
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Represents a role in the identity system

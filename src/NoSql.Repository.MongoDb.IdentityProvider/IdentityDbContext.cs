@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ItMastersPro.NoSql.Repository.MongoDb.Identity;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
-using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Base class for the Entity Framework database context used for identity.
     /// </summary>
-    public class IdentityDbContext : IdentityDbContext<Identity.IdentityUser, Identity.IdentityRole>
+    public class IdentityDbContext : IdentityDbContext<IdentityUser, IdentityRole>
     {
         /// <summary>
         /// Initializes a new instance of <see cref="IdentityDbContext"/>.
         /// </summary>
-        /// <param name="connectionString">The options to be used by a <see cref="DbContext"/>.</param>
+        /// <param name="connectionString">The options to be used by a <see cref="MongoDbContext"/>.</param>
         public IdentityDbContext(string connectionString) : base(connectionString) { }
     }
 
@@ -22,12 +19,12 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
     /// Base class for the Entity Framework database context used for identity.
     /// </summary>
     /// <typeparam name="TUser">The type of the user objects.</typeparam>
-    public class IdentityDbContext<TUser> : IdentityDbContext<TUser, Identity.IdentityRole> where TUser : Identity.IdentityUser
+    public class IdentityDbContext<TUser> : IdentityDbContext<TUser, IdentityRole> where TUser : IdentityUser
     {
         /// <summary>
         /// Initializes a new instance of <see cref="IdentityDbContext"/>.
         /// </summary>
-        /// <param name="connectionString">The options to be used by a <see cref="DbContext"/>.</param>
+        /// <param name="connectionString">The options to be used by a <see cref="MongoDbContext"/>.</param>
         public IdentityDbContext(string connectionString) : base(connectionString) { }
     }
 
@@ -37,14 +34,14 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
     /// <typeparam name="TUser">The type of user objects.</typeparam>
     /// <typeparam name="TRole">The type of role objects.</typeparam>
     /// <typeparam name="TKey">The type of the primary key for users and roles.</typeparam>
-    public class IdentityDbContext<TUser, TRole> : IdentityDbContext<TUser, TRole, Identity.IdentityUserClaim, Identity.IdentityUserRole, Identity.IdentityUserLogin, Identity.IdentityRoleClaim, Identity.IdentityUserToken>
-        where TUser : Identity.IdentityUser
-        where TRole : Identity.IdentityRole
+    public class IdentityDbContext<TUser, TRole> : IdentityDbContext<TUser, TRole, IdentityUserClaim, IdentityUserRole, IdentityUserLogin, IdentityRoleClaim, IdentityUserToken>
+        where TUser : IdentityUser
+        where TRole : IdentityRole
     {
         /// <summary>
         /// Initializes a new instance of the db context.
         /// </summary>
-        /// <param name="connectionString">The options to be used by a <see cref="DbContext"/>.</param>
+        /// <param name="connectionString">The options to be used by a <see cref="MongoDbContext"/>.</param>
         public IdentityDbContext(string connectionString) : base(connectionString) { }
     }
 
@@ -59,18 +56,18 @@ namespace NoSql.Repository.MongoDb.IdentityProvider
     /// <typeparam name="TRoleClaim">The type of the role claim object.</typeparam>
     /// <typeparam name="TUserToken">The type of the user token object.</typeparam>
     public abstract class IdentityDbContext<TUser, TRole, TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken> : IdentityUserContext<TUser, TUserClaim, TUserLogin, TUserToken>
-        where TUser : Identity.IdentityUser
-        where TRole : Identity.IdentityRole
-        where TUserClaim : Identity.IdentityUserClaim
-        where TUserRole : Identity.IdentityUserRole
-        where TUserLogin : Identity.IdentityUserLogin
-        where TRoleClaim : Identity.IdentityRoleClaim
-        where TUserToken : Identity.IdentityUserToken
+        where TUser : IdentityUser
+        where TRole : IdentityRole
+        where TUserClaim : IdentityUserClaim
+        where TUserRole : IdentityUserRole
+        where TUserLogin : IdentityUserLogin
+        where TRoleClaim : IdentityRoleClaim
+        where TUserToken : IdentityUserToken
     {
         /// <summary>
         /// Initializes a new instance of the class.
         /// </summary>
-        /// <param name="options">The options to be used by a <see cref="DbContext"/>.</param>
+        /// <param name="options">The options to be used by a <see cref="MongoDbContext"/>.</param>
         public IdentityDbContext(string connectionString) : base(connectionString) { }
 
         /// <summary>

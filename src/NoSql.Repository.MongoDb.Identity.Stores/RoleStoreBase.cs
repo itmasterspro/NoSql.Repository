@@ -10,7 +10,7 @@ using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
 using Microsoft.AspNetCore.Identity;
 using MongoDB.Bson;
 
-namespace NoSql.Repository.MongoDb.Identity
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     /// <summary>
     /// Creates a new instance of a persistence store for roles.

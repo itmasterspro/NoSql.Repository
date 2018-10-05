@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Reflection;
 using System.Resources;
-using System.Text;
 
-namespace NoSql.Repository.MongoDb.IdentityProvider
+namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {
     internal static class Resources
     {
         private static readonly ResourceManager _resourceManager
-            = new ResourceManager("NoSql.Repository.MongoDb.IdentityProvider.Resources", typeof(Resources).GetTypeInfo().Assembly);
+            = new ResourceManager("ItMastersPro.NoSql.Repository.MongoDb.Identity.Resources", typeof(Resources).GetTypeInfo().Assembly);
 
         /// <summary>
         /// [ProtectedPersonalData] only works strings by default.
