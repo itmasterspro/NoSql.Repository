@@ -9,7 +9,7 @@ namespace ItMastersPro.NoSql.Repository.Interfaces
     /// Defines the interfaces for synchronous CRUD operations with NoSQL collection
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface IOperation<TEntity> where TEntity : class, IEntity
+    public partial interface IOperation<TEntity> where TEntity : class, IEntity
     {
         /// <summary>
         /// Filters a sequence of values based on a predicate. This method default no-tracking query.

@@ -14,11 +14,11 @@ namespace NoSql.Repository.MongoDb.IntegrationTests
 {
     public class TesTEntityForInsertTest : IEntity
     {
-        public ObjectId Id { get; set; }
-
         public string StringsTestField { get; set; }
 
         public int IntTestField { get; set; }
+        
+        public ObjectId Id { get; set; }
     }
 
     public class InsertInRepositoryIntegrationTests

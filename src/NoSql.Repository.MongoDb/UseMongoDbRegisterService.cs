@@ -1,6 +1,7 @@
 ﻿using ItMastersPro.NoSql.Repository.Interfaces;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace ItMastersPro.NoSql.Repository.MongoDb
 {
@@ -20,8 +21,8 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         public static IServiceCollection UseMongoDb(this IServiceCollection services, string connectionString)
         {
             services.AddSingleton<IMongoDbContext, MongoDbContext>(serviceProvider => new MongoDbContext(connectionString));
-            services.AddSingleton(typeof(IMongoDbRepository<>), typeof(MongoDbRepository<>));
-            services.AddSingleton(typeof(IRepository<>), typeof(MongoDbRepository<>));
+            services.TryAddSingleton(typeof(IMongoDbRepository<>), typeof(MongoDbRepository<>));
+            services.TryAddSingleton(typeof(IRepository<>), typeof(MongoDbRepository<>));
             return services;
         }
     }

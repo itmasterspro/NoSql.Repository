@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Dynamic;
 using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using ItMastersPro.NoSql.Repository.Interfaces;
 using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -21,6 +24,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
 
         #region Fields
         private Dictionary<string, object> _collectionsMongoDb;
+        private static Dictionary<string, object> _repostoriesMongoDb;
         #endregion
 
         #region Properties
@@ -90,6 +94,28 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         }
 
         /// <inheritdoc />
+        public async Task<IMongoDbRepository<TEntity>> Set<TEntity>() where TEntity : class, IEntity
+        {
+            if (_repostoriesMongoDb == null)
+            {
+                _repostoriesMongoDb = new Dictionary<string, object>();
+            }
+            var collectionName = typeof(TEntity).MongoCollectionName();
+            if (false == await IsCollectionExistsAsync<TEntity>().ConfigureAwait(false))
+            {
+                await DbContext.CreateCollectionAsync(collectionName).ConfigureAwait(false);
+            }
+
+            if (!_repostoriesMongoDb.ContainsKey(collectionName))
+            {
+                var result = new MongoDbRepository<TEntity>(this);
+                _repostoriesMongoDb[collectionName] = result.Repository;
+            }
+
+            return (IMongoDbRepository<TEntity>)_repostoriesMongoDb[collectionName];
+        }
+
+        /// <inheritdoc />
         public async Task<bool> IsCollectionExistsAsync<TEntity>()
         {
             var filter = new BsonDocument("name", typeof(TEntity).MongoCollectionName());
@@ -98,5 +124,6 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
             //check for existence
             return await collections.AnyAsync().ConfigureAwait(false);
         }
+
     }
 }

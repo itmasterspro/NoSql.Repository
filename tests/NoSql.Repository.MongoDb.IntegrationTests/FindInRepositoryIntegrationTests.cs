@@ -150,6 +150,37 @@ namespace NoSql.Repository.MongoDb.IntegrationTests
             await DropCollectionAsync(mongoDbContextService, serviceRepository1.CollectionName);
         }
 
+        [Fact]
+        public async Task FindAsync_by_MongoDbContext_Entity()
+        {
+            // Arrange
+            var mongoDbContextService = (IMongoDbContext)_testServiceProvider.GetService(typeof(IMongoDbContext));
+            var serviceRepository1 = (IRepository<TesTEntityForFindTest>)_testServiceProvider.GetService(typeof(IRepository<TesTEntityForFindTest>));
+            await DropCollectionAsync(mongoDbContextService, serviceRepository1.CollectionName);
+
+            var tesTEntityArray = new[]
+            {
+                new TesTEntityForFindTest(){ IntTestField = 1, StringsTestField = "String 1", Id = new ObjectId() },
+                new TesTEntityForFindTest(){ IntTestField = 2, StringsTestField = "String 2", Id = new ObjectId() },
+                new TesTEntityForFindTest(){ IntTestField = 3, StringsTestField = "String 3", Id = new ObjectId() }
+            };
+            await Task.Run(async () => await serviceRepository1.InsertAsync(tesTEntityArray));
+
+
+            // Act
+            var repository = await mongoDbContextService.Set<TesTEntityForFindTest>();
+            var entity1 = await repository.FindAsync(predicate: x => x.Id == tesTEntityArray[1].Id);
+
+            // Assert
+            Assert.NotNull(entity1);
+            Assert.Equal(entity1.Id, tesTEntityArray[1].Id);
+            Assert.Equal(2, entity1.IntTestField);
+            Assert.Equal("String 2", entity1.StringsTestField);
+
+            // Drop collection
+            await DropCollectionAsync(mongoDbContextService, serviceRepository1.CollectionName);
+        }
+
         private void DropCollection(IMongoDbContext context, string collectionName)
         {
             context.DbContext.DropCollection(collectionName);

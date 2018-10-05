@@ -61,7 +61,7 @@ namespace NoSql.Repository.MongoDb.IntegrationTests
         }
 
         [Fact]
-        public void Delete_ById_Id_Not_ObjectId_Entity()
+        public void Delete_ByIdId_Not_ObjectId_Entity()
         {
             // Arrange
             var mongoDbContextService = (IMongoDbContext)_testServiceProvider.GetService(typeof(IMongoDbContext));
@@ -215,7 +215,7 @@ namespace NoSql.Repository.MongoDb.IntegrationTests
         }
 
         [Fact]
-        public async Task DeleteAsync_ById_Id_Not_ObjectId_Entity()
+        public async Task DeleteAsync_ByIdId_Not_ObjectId_Entity()
         {
             // Arrange
             var mongoDbContextService = (IMongoDbContext)_testServiceProvider.GetService(typeof(IMongoDbContext));

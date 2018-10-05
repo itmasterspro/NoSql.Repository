@@ -26,6 +26,8 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         #endregion
 
         #region Properties
+        /// <inheritdoc cref="IMongoDbRepository{TEntity}"/>
+        public IMongoDbRepository<TEntity> Repository => this;
 
         /// <inheritdoc cref="IRepository{TEntity}"/>
         public string CollectionName => typeof(TEntity).MongoCollectionName();
@@ -49,12 +51,13 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
 
         #endregion
 
+        #region Find & Query
         /// <inheritdoc />
         public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> predicate = null)
         {
             return predicate != null ? Collection.Where(predicate) : Collection;
         }
-
+        
         /// <inheritdoc />
         public IQueryable<TEntity> Query(FilterDefinition<TEntity> filter)
         {
@@ -84,6 +87,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
             CancellationToken cancellationToken)
             => (await _collection.FindAsync(predicate, null, cancellationToken).ConfigureAwait(false))
                 .SingleOrDefault();
+        #endregion
 
         #region Insert methods
 
@@ -162,10 +166,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         /// <inheritdoc />
         public void Update(TEntity entity)
         {
-            if (ObjectId.TryParse(entity.Id.ToString(), out var objectId))
-            {
-                _collection.ReplaceOne(objectId.GetByIdFilter<TEntity>(), entity);
-            }
+            _collection.ReplaceOne(e=> e.Id == entity.Id, entity);
         }
 
         /// <inheritdoc />
@@ -259,8 +260,8 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
                 await _collection.DeleteOneAsync(objectId.GetByIdFilter<TEntity>()).ConfigureAwait(false);
             }
         }
-
-    /// <inheritdoc />
+        
+        /// <inheritdoc />
         public async Task DeleteAsync(params TEntity[] entities)
         {
             var deletedIds = entities.Select(x => x.Id);

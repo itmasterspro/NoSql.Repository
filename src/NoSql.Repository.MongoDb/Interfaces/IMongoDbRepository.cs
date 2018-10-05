@@ -8,8 +8,18 @@ using MongoDB.Driver;
 
 namespace ItMastersPro.NoSql.Repository.MongoDb.Interfaces
 {
+    /// <summary>
+    /// Defines the interfaces for MongoDb generic repository.
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
+
     public interface IMongoDbRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
+        /// <summary>
+        /// MongodDb generic repository
+        /// </summary>
+        IMongoDbRepository<TEntity> Repository { get; }
+
         /// <summary>
         /// Filters a sequence of values based on a filter definition. This method default no-tracking query.
         /// </summary>

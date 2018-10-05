@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoSql.Repository.Interfaces\NoSql.Repository.Interfaces.csproj" />
+    <ProjectReference Include="..\NoSql.Repository.MongoDb\NoSql.Repository.MongoDb.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,5 +1,6 @@
 using System;
 using ItMastersPro.NoSql.Repository.MongoDb;
+using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
