@@ -1,7 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Copyright>ItMasters.Pro</Copyright>
+    <PackageLicenseUrl>https://github.com/itmasterspro/NoSql.Repository/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/itmasterspro/NoSql.Repository</PackageProjectUrl>
+    <PackageIconUrl>https://avatars2.githubusercontent.com/u/34750101</PackageIconUrl>
+    <RepositoryUrl>https://github.com/itmasterspro/NoSql.Repository.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Konstantin Anisimoff</Authors>
+    <Company>ItMasters.Pro</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>mongo mongodb repository cosmosdb nosql no-sql itmasters pro identity provider userstore rolestore</PackageTags>
+    <PackageId>ItMastersPro.NoSql.Repository.MongoDb.Identity.Stores</PackageId>
+    <RootNamespace>ItMastersPro.NoSql.Repository.MongoDb.Identity.Stores</RootNamespace>
+    <AssemblyName>ItMastersPro.NoSql.Repository.MongoDb.Identity.Stores</AssemblyName>
+    <Description>ASP.NET Core Identity is the membership system for building ASP.NET Core web applications, including membership, login, and user data for MongoDb.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
