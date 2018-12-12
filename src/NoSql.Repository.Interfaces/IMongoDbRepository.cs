@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using ItMastersPro.NoSql.Repository.Interfaces;
 using MongoDB.Driver;
 
-namespace ItMastersPro.NoSql.Repository.MongoDb.Interfaces
+namespace ItMastersPro.NoSql.Repository.Interfaces
 {
     /// <summary>
     /// Defines the interfaces for MongoDb generic repository.

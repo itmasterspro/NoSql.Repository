@@ -1,4 +1,5 @@
-﻿using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
+﻿using ItMastersPro.NoSql.Repository.Interfaces;
+using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 
 namespace ItMastersPro.NoSql.Repository.MongoDb.Identity
 {

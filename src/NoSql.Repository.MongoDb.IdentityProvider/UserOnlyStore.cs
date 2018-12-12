@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
+using ItMastersPro.NoSql.Repository.Interfaces;
 using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
 using ItMastersPro.NoSql.Repository.MongoDb.Identity;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
