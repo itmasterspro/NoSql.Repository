@@ -54,7 +54,8 @@ namespace ItMastersPro.NoSql.Repository.Interfaces
         /// Updates the specified entity asynchronously.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        Task UpdateAsync(TEntity entity);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates the specified entities asynchronously.
@@ -66,19 +67,22 @@ namespace ItMastersPro.NoSql.Repository.Interfaces
         /// Updates the specified entities asynchronously.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        Task UpdateAsync(IEnumerable<TEntity> entities);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        Task UpdateAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes the entity by the specified primary key asynchronously.
         /// </summary>
         /// <param name="id">The primary key value.</param>
-        Task DeleteAsync(object id);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        Task DeleteAsync(object id, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes the specified entity asynchronously.
         /// </summary>
         /// <param name="entity">The entity to delete.</param>
-        Task DeleteAsync(TEntity entity);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes the specified entities asynchronously.
@@ -90,6 +94,7 @@ namespace ItMastersPro.NoSql.Repository.Interfaces
         /// Deletes the specified entities asynchronously.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        Task DeleteAsync(IEnumerable<TEntity> entities);
+        /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+        Task DeleteAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

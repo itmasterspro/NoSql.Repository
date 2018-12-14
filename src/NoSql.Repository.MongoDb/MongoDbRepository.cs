@@ -10,6 +10,7 @@ using ItMastersPro.NoSql.Repository.MongoDb.Extensions;
 using ItMastersPro.NoSql.Repository.MongoDb.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace ItMastersPro.NoSql.Repository.MongoDb
 {
@@ -102,11 +103,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         /// <inheritdoc />
         public TEntity[] Insert(params TEntity[] entities)
         {
-            foreach (var item in entities)
-            {
-                item.Id = ObjectId.GenerateNewId();
-            }
-
+            entities.ToList().ForEach(e=>e.Id = ObjectId.GenerateNewId());
             _collection.InsertMany(entities);
             return entities;
         }
@@ -114,11 +111,8 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         /// <inheritdoc />
         public IEnumerable<TEntity> Insert(IEnumerable<TEntity> entities)
         {
-            var items = entities.ToArray();
-            foreach (var item in items)
-            {
-                item.Id = ObjectId.GenerateNewId();
-            }
+            var items = entities as TEntity[] ?? entities.ToArray();
+            items.ToList().ForEach(e => e.Id = ObjectId.GenerateNewId());
 
             _collection.InsertMany(items);
             return items;
@@ -136,10 +130,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         /// <inheritdoc />
         public async Task<TEntity[]> InsertAsync(params TEntity[] entities)
         {
-            foreach (var item in entities)
-            {
-                item.Id = ObjectId.GenerateNewId();
-            }
+            entities.ToList().ForEach(e => e.Id = ObjectId.GenerateNewId());
 
             await _collection.InsertManyAsync(entities).ConfigureAwait(false);
             return entities;
@@ -149,11 +140,8 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         public async Task<IEnumerable<TEntity>> InsertAsync(IEnumerable<TEntity> entities,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            var items = entities.ToArray();
-            foreach (var item in items)
-            {
-                item.Id = ObjectId.GenerateNewId();
-            }
+            var items = entities as TEntity[] ?? entities.ToArray();
+            items.ToList().ForEach(e => e.Id = ObjectId.GenerateNewId());
 
             await _collection.InsertManyAsync(items, null, cancellationToken).ConfigureAwait(false);
             return items;
@@ -185,29 +173,24 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         }
 
         /// <inheritdoc />
-        public async Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (ObjectId.TryParse(entity.Id.ToString(), out var objectId))
-            {
-                await _collection.ReplaceOneAsync(objectId.GetByIdFilter<TEntity>(), entity).ConfigureAwait(false);
-            }
+            await _collection.ReplaceOneAsync(c => c.Id == entity.Id, entity, null, cancellationToken);
         }
 
         /// <inheritdoc />
         public async Task UpdateAsync(params TEntity[] entities)
         {
-            foreach (var itemEntity in entities)
-            {
-                await UpdateAsync(itemEntity).ConfigureAwait(false);
-            }
+            var tasks = entities.Select(item=> UpdateAsync(item));
+            await Task.WhenAll(tasks).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task UpdateAsync(IEnumerable<TEntity> entities)
+        public async Task UpdateAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken = default(CancellationToken))
         {
-            await UpdateAsync(entities.ToArray()).ConfigureAwait(false);
+            var tasks = entities.Select(item => UpdateAsync(item, cancellationToken));
+            await Task.WhenAll(tasks).ConfigureAwait(false);
         }
-
         #endregion
 
         #region Delete methods
@@ -217,17 +200,14 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         {
             if (ObjectId.TryParse(id.ToString(), out var objectId))
             {
-                _collection.DeleteOne(objectId.GetByIdFilter<TEntity>());
+                _collection.DeleteOne(e=>e.Id == objectId);
             }
         }
 
         /// <inheritdoc />
         public void Delete(TEntity entity)
         {
-            if (ObjectId.TryParse(entity.Id.ToString(), out var objectId))
-            {
-                _collection.DeleteOne(objectId.GetByIdFilter<TEntity>());
-            }
+            _collection.DeleteOne(e => e.Id == entity.Id);
         }
 
         /// <inheritdoc />
@@ -244,23 +224,20 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         }
 
         /// <inheritdoc />
-        public async Task DeleteAsync(object id)
+        public async Task DeleteAsync(object id, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (ObjectId.TryParse(id.ToString(), out var objectId))
             {
-                await _collection.DeleteOneAsync(objectId.GetByIdFilter<TEntity>()).ConfigureAwait(false);
+                await _collection.DeleteOneAsync(e => e.Id == objectId, cancellationToken).ConfigureAwait(false);
             }
         }
 
         /// <inheritdoc />
-        public async Task DeleteAsync(TEntity entity)
+        public async Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (ObjectId.TryParse(entity.Id.ToString(), out var objectId))
-            {
-                await _collection.DeleteOneAsync(objectId.GetByIdFilter<TEntity>()).ConfigureAwait(false);
-            }
+            await _collection.DeleteOneAsync(e=>e.Id == entity.Id, cancellationToken).ConfigureAwait(false);
         }
-        
+
         /// <inheritdoc />
         public async Task DeleteAsync(params TEntity[] entities)
         {
@@ -269,7 +246,12 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         }
 
         /// <inheritdoc />
-        public async Task DeleteAsync(IEnumerable<TEntity> entities) => await DeleteAsync(entities.ToArray()).ConfigureAwait(false);
+        public async Task DeleteAsync(IEnumerable<TEntity> entities,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var tasks = entities.Select(item => DeleteAsync(item, cancellationToken));
+            await Task.WhenAll(tasks).ConfigureAwait(false);
+        }
         #endregion
     }
 }
