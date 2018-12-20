@@ -175,7 +175,7 @@ namespace ItMastersPro.NoSql.Repository.MongoDb
         /// <inheritdoc />
         public async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default(CancellationToken))
         {
-            await _collection.ReplaceOneAsync(c => c.Id == entity.Id, entity, null, cancellationToken);
+            await _collection.ReplaceOneAsync(c => c.Id == entity.Id, entity, new UpdateOptions() { IsUpsert = true }, cancellationToken);
         }
 
         /// <inheritdoc />
