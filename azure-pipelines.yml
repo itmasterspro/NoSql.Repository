@@ -22,3 +22,23 @@ steps:
       !**/*[Tt]est*.csproj
     arguments: '--configuration $(buildConfiguration)'
     displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*[Tt]ests/**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) -p:DefineConstants=$(DefinedConstants)'
+    testRunTitle: 'Tests'
+
+# The second task is dotnet pack command again pointing to the csproj file
+# The nobuild means the project will not be compiled before running pack, because its already built in above step
+- task: DotNetCoreCLI@2
+  displayName: "dotnet pack"
+  inputs:
+    command: 'pack'
+    arguments: '--configuration $(buildConfiguration)'
+    packagesToPack: |
+          **/*.csproj
+          !**/*[Tt]est*.csproj
+    nobuild: true
+    versioningScheme: 'off'
