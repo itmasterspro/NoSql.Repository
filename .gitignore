@@ -8,7 +8,6 @@
 *.sln.docstates
 
  # ASP.NET Core appsettings
-appsettings.json
 appsettings.production.json
 appsettings.development.json
 
