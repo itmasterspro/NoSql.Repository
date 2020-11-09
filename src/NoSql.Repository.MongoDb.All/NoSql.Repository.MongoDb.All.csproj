@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>ItMastersPro.NoSql.Repository.MongoDb.All</AssemblyName>
     <RootNamespace>ItMastersPro.NoSql.Repository.MongoDb.All</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
